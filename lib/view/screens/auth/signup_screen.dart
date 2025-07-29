@@ -41,7 +41,7 @@ class _SignupScreenState extends State<SignupScreen> {
               'Register',
               style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             Stack(
               children: [
                 CircleAvatar(
@@ -52,10 +52,15 @@ class _SignupScreenState extends State<SignupScreen> {
                 Positioned(
                   bottom: -10,
                   right: 0,
-                  child: IconButton(onPressed: () {}, icon: Icon(Icons.camera)),
+                  child: IconButton(
+                    onPressed: () => authController.pickImage(),
+                    icon: Icon(Icons.camera),
+                  ),
                 ),
               ],
             ),
+            SizedBox(height: 15),
+
             Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -66,7 +71,8 @@ class _SignupScreenState extends State<SignupScreen> {
                 isObscure: false,
               ),
             ),
-            SizedBox(height: 25),
+
+            SizedBox(height: 15),
             Container(
               width: MediaQuery.of(context).size.width,
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -77,7 +83,7 @@ class _SignupScreenState extends State<SignupScreen> {
                 isObscure: false,
               ),
             ),
-            SizedBox(height: 25),
+            SizedBox(height: 15),
             Container(
               width: width,
               margin: EdgeInsets.symmetric(horizontal: 16),
@@ -97,7 +103,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  authController.registerUser(
+                    _userNameController.text,
+                    _emailController.text,
+                    _pwController.text,
+                    authController.profilePhoto,
+                  );
+                },
                 child: Center(
                   child: Text(
                     "Register",
