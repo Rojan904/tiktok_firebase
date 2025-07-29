@@ -71,7 +71,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 borderRadius: BorderRadius.all(Radius.circular(6)),
               ),
               child: InkWell(
-                onTap: () {},
+                onTap: () {
+                  authController.loginUser(
+                    _emailController.text,
+                    _pwController.text,
+                  );
+                },
                 child: Center(
                   child: Text(
                     "Login",

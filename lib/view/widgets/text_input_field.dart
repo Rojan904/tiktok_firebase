@@ -7,12 +7,12 @@ class TextInputField extends StatelessWidget {
     required this.controller,
     required this.labelText,
     required this.icon,
-    required this.isObscure,
+    this.isObscure = false,
   });
   final TextEditingController controller;
   final String labelText;
   final IconData icon;
-  final bool isObscure;
+  final bool? isObscure;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
@@ -30,7 +30,7 @@ class TextInputField extends StatelessWidget {
           borderSide: BorderSide(color: borderColor),
         ),
       ),
-      obscureText: isObscure,
+      obscureText: isObscure!,
     );
   }
 }

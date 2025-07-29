@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:tiktok_firebase/controllers/auth_controller.dart';
 import 'package:tiktok_firebase/core/constants.dart';
 import 'package:tiktok_firebase/firebase_options.dart';
-import 'package:tiktok_firebase/view/screens/auth/login_screen.dart';
+import 'package:tiktok_firebase/view/screens/auth/signup_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData.dark().copyWith(
         scaffoldBackgroundColor: backgroundColor,
       ),
-      home: const LoginScreen(),
+      home: const SignupScreen(),
     );
   }
 }
