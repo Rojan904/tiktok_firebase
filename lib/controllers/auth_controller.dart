@@ -15,6 +15,7 @@ class AuthController extends GetxController {
   //register the user
   late Rx<File?> _pickedImage; //observable, updated when event changes
   late Rx<User?> _user;
+  User get user => _user.value!;
 
   File? get profilePhoto => _pickedImage.value;
 
