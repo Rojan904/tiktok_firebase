@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tiktok_firebase/controllers/video_controller.dart';
+import 'package:tiktok_firebase/core/constants.dart';
+import 'package:tiktok_firebase/view/screens/comment_screen.dart';
 import 'package:tiktok_firebase/view/widgets/circle_animation.dart';
 import 'package:tiktok_firebase/view/widgets/video_player_item.dart';
 
@@ -82,12 +84,27 @@ class VideoScreen extends StatelessWidget {
                               children: [
                                 buildProfile(''),
                                 ActionItems(
-                                  onTap: () {},
+                                  onTap: () =>
+                                      videoController.likeVideo(data.id),
                                   icon: Icons.favorite,
+                                  iconColor:
+                                      data.likes.contains(
+                                        authController.user.uid,
+                                      )
+                                      ? Colors.red
+                                      : Colors.white,
                                   text: data.likes.length.toString(),
                                 ),
                                 ActionItems(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) =>
+                                            CommentScreen(id: data.id),
+                                      ),
+                                    );
+                                  },
                                   icon: Icons.comment,
                                   text: data.commentCount.toString(),
                                 ),
