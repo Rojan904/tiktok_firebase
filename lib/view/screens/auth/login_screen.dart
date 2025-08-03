@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tiktok_firebase/core/constants.dart';
 import 'package:tiktok_firebase/core/size_config.dart';
+import 'package:tiktok_firebase/view/screens/auth/signup_screen.dart';
 import 'package:tiktok_firebase/view/widgets/text_input_field.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -91,7 +92,12 @@ class _LoginScreenState extends State<LoginScreen> {
               children: [
                 Text('Don\'t have an account?', style: TextStyle(fontSize: 20)),
                 InkWell(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => SignupScreen()),
+                    );
+                  },
                   child: Text(
                     'Register',
                     style: TextStyle(fontSize: 20, color: buttonColor),
